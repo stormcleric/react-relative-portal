@@ -21,7 +21,9 @@ function getPageOffset() {
 }
 
 if (canUseDOM) {
-  document.body.addEventListener('mousewheel', debounce(fireListeners, 100, true));
+  if (document != null && document != undefined && document.body != null && document.body != undefined){ 
+    document.body.addEventListener('mousewheel', (0, _debounce2.default)(fireListeners, 100, true)); 
+  }
   window.addEventListener('resize', debounce(fireListeners, 50, true));
 }
 
